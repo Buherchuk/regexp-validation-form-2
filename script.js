@@ -31,8 +31,8 @@ function removeErrorElement(location) {
 document.forms.signUp.onchange = function (e) {
     let targ = e.target;
     let email = /^[A-Za-z]*@/;
-    let lastName = /^[a-zA-Z]{1,20}$/;
-    let password = /^[a-zA-Z0-9]{8,15}$/;
+    let lastName = /^[a-zA-Z]{4,16}$/;
+    let password = /[a-zA-Z\.\-\_\d]{4,16}$/;
     if (targ.id == 'email') {
         if (email.test(targ.value)) {
             emailFlag = true;
@@ -102,7 +102,7 @@ document.querySelector('#signIn').onclick = function () {
         let div = document.createElement('div');
         div.classList.add('user-list');
         div.innerHTML = `
-        <span id= "user-count">${count + 1}</span>
+        <span id= "user-count">${elemForEdit}</span>
         <span id = "user-login">${login}</span>
         <span id = "user-password">${pass}</span>
         <span id = "user-email">${mail}</span>
